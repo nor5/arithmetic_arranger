@@ -8,10 +8,10 @@ def arithmetic_arranger(problems, calcul=False):
     line4 = ""
     #Situations that will return an error
 
-    if len(problems) <= 4:
+    if len(problems) <= 5:
 
-        for p in problems:
-            p = ''.join(p.split())
+        for pp in problems:
+            p = ''.join(pp.split())
             ##    regexp = "([0-9]{1,4})([-\+])([0-9]{1,4}$)"
             regexp = "(\d{1,4})([-\+])(\d{1,4}$)"
             match = re.match(regexp, p)
@@ -54,10 +54,25 @@ def arithmetic_arranger(problems, calcul=False):
                 
                 result = str(eval(match[1] + match[2] + match[3]))
                 spaceResult = len(inderscor) - len(result)
-                line1 = line1 + operand1 + 4 * " "
-                line2 = line2 + operator + operand2 + 4 * " "
-                line3 = line3 + inderscor + 4 * " "
-                line4 = line4 + spaceResult*" "+ result + 4 * " "
+               
+                if problems.index(pp) == (len(problems)-1):
+                  
+                  line1 = line1 + operand1 
+                  line2 = line2 + operator + operand2 
+                  line3 = line3 + inderscor 
+                  line4 = line4 + spaceResult*" "+ result 
+                else:
+                  
+                  line1 = line1 + operand1 + 4 * " "
+                  line2 = line2 + operator + operand2 + 4 * " "
+                  line3 = line3 + inderscor + 4 * " "
+                  line4 = line4 + spaceResult*" "+ result + 4 * " "
+                
+                
+
+                  
+                
+              
 
         #return arranged_problems
         if calcul:
